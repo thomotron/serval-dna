@@ -101,6 +101,8 @@ CFLAGS+=-DSHA2_USE_INTTYPES_H -D_XOPEN_SOURCE=600 -D_XOPEN_SOURCE_EXTENDED=1 -D_
 # OSX magic to compensate for the Solaris magic
 CFLAGS+=-D_DARWIN_C_SOURCE
 CFLAGS_SQLITE=@CFLAGS_SQLITE@
+# Ignore non-errors from newer versions of GCC
+CFLAGS+=-Wno-stringop-truncation -Wno-cast-function-type -Wno-format-truncation
 
 -include $(srcdir)/Makefile.dbg
 
